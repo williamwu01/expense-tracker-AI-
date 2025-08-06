@@ -3,9 +3,10 @@ CREATE TABLE "public"."User" (
     "id" TEXT NOT NULL,
     "clerkUserId" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
-    "imageUrl" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "createdAt" TIMESTAMP(3) NOT NULL,
+    "name" TEXT,
+    "imageUrl" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -28,9 +29,6 @@ CREATE UNIQUE INDEX "User_clerkUserId_key" ON "public"."User"("clerkUserId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "public"."User"("email");
-
--- CreateIndex
-CREATE UNIQUE INDEX "User_name_key" ON "public"."User"("name");
 
 -- CreateIndex
 CREATE INDEX "Record_userId_idx" ON "public"."Record"("userId");
